@@ -38,6 +38,15 @@
      data-layout="button_count">
 </div>
 
+
+<div class="container">
+    <div class="row">
+        <button id="fb-share-2" class="btn btn-lg">
+            Share Over FB!
+        </button>
+    </div>
+</div>
+
 <div class="container">
     <h1>Link Ref Testing</h1>
     <div><a href="#sec1">Section 1</a></div>
@@ -375,5 +384,17 @@
     </div>
 </div>
 
+<script>
+    var btnShare = document.getElementById('fb-share-2');
+    btnShare.onclick = function () {
+        FB.ui({
+            method: 'share',
+            mobile_iframe: true,
+            href: 'https://arnabbanerji.github.io/easyGraph/share/',
+            quote: "Hello"
+        }, function (response) {
+        });
+    }
+</script>
 </body>
 </html>
