@@ -55,7 +55,7 @@ function showPosition(position) {
     dds.push(dd);
     dts.push(dt);
 
-    let speed = (dd / dt) * 3600;
+    let speed = Math.round((dd / dt) * 3600);
 
     speeds.push(speed);
     console.log(dds);
