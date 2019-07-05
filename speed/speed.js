@@ -72,9 +72,9 @@ function showPosition(position) {
     let speed = Math.round((dd / dt) * 3600);
 
     speeds.push(speed);
-    console.log(dds);
-    console.log(dts);
-    console.log(speeds);
+    console.log('dds', dds.join(','));
+    console.log('dts', dts.join(','));
+    console.log('speeds', speeds.join(','));
     x.innerHTML = speed;
   }
 }
