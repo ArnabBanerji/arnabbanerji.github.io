@@ -49,6 +49,11 @@ function getLocation() {
   }
 }
 
+function log(row, value) {
+
+  $('#' + row).append('<div>' + value + '</div>');
+}
+
 function showPosition(position) {
   positions.push(position);
 
@@ -63,19 +68,23 @@ function showPosition(position) {
     let t1 = p1.timestamp;
     let t0 = p0.timestamp;
 
-    let dt = (t1 - t0) / 1000000;
+    let dt = (t1 - t0) / 1000;
     let dd = getDistance(p1, p0);
+    let speed = Math.round((dd / dt) * 3600);
 
     dds.push(dd);
     dts.push(dt);
-
-    let speed = Math.round((dd / dt) * 3600);
+    speeds.push(speed);
+    x.innerHTML = speed;
 
     speeds.push(speed);
-    console.log('dds', dds.join(','));
-    console.log('dts', dts.join(','));
-    console.log('speeds', speeds.join(','));
-    x.innerHTML = speed;
+    console.log('dd', dd);
+    console.log('dt', dt);
+    console.log('speed', speed);
+
+    log('dds', dd);
+    log('dts', dt);
+    log('speeds', speed);
   }
 }
 
