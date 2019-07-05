@@ -27,9 +27,23 @@ function getDistance(p1, p0) {
   return R * c;
 }
 
+var wpid = null;
+
+
+function geoError(error) {
+  alert('geoError(' + error.code + '): ' + error.message);
+}
+
+var geo_options = {
+  enableHighAccuracy: true,
+  maximumAge: 30000,
+  timeout: 27000
+};
+
+
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition);
+    wpid = navigator.geolocation.watchPosition(showPosition, geoError, geo_options);
   } else {
     x.innerHTML = "X";
   }
