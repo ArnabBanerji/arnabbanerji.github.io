@@ -47,7 +47,7 @@ function showPosition(position) {
     let t1 = p1.timestamp;
     let t0 = p0.timestamp;
 
-    let dt = (t1 - t0) / 1000;
+    let dt = (t1 - t0) / 1000000;
     let dd = getDistance(p1, p0);
 
     let speed = (dd / dt) * 3600;
