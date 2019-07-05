@@ -2,6 +2,8 @@ var x = document.getElementById("dial");
 
 var positions = [];
 var speeds = [];
+var dds = [];
+var dts = [];
 
 Number.prototype.toRad = function () {
   return this * Math.PI / 180;
@@ -50,9 +52,14 @@ function showPosition(position) {
     let dt = (t1 - t0) / 1000000;
     let dd = getDistance(p1, p0);
 
+    dds.push(dd);
+    dts.push(dt);
+
     let speed = (dd / dt) * 3600;
 
     speeds.push(speed);
+    console.log(dds);
+    console.log(dts);
     console.log(speeds);
     x.innerHTML = speed;
   }
